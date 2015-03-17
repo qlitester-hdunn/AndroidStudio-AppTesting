@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EspressoSamples</string>
+    <string name="app_name">EspressoExamples</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -18,4 +18,30 @@
     <string name="title_activity_display_name">DisplayNameActivity</string>
     <string name="mandatory">Mandatory field</string>
     <string name="title_activity_spinner_selection">SpinnerSelectionActivity</string>
+    <string name="title_activity_custom_list">CustomListActivity</string>
+    <string name="title_activity_book_details">BookDetailsActivity</string>
+    <string name="search_hint">Search books</string>
+    <string name="title_activity_searchable">SearchableActivity</string>
+    <string name="no_items_found">No items found!</string>
+    <string name="title_activity_search_view">SearchViewActivity</string>
+    <string name="search">Search</string>
+    <string name="clear_search_history">Clear Search History</string>
+    <string name="title_activity_action_bar_example">ActionBarExampleActivity</string>
+    <string name="action_about">About</string>
+    <string name="toogle_actionmode">Toggle ActionMode</string>
+    <string name="action_mode_one">ActionMode1</string>
+    <string name="title_activity_view_pager">ViewPagerActivity</string>
+    <string name="title_activity_dialog_example">DialogExampleActivity</string>
+    <string name="show_confirm_dialog">Show Confirm Dialog</string>
+    <string name="dialog_title">Please confirm</string>
+    <string name="dialog_message">This is a very important action that you need to confirm.</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="search_activity_help_text">Valid options: \nBerlin \nHelsinki \nParis \nSofia</string>
+    <string name="title_activity_recycler_view">RecyclerViewActivity</string>
+    <string name="RecyclerView">RecyclerView</string>
+    <string name="title_activity_date_time_picker">DateTimePickerActivity</string>
+    <string name="date_picker">DatePicker</string>
+    <string name="time_picker">TimePicker</string>
+    <string name="date_time_pickers">Date / Time Pickers</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.vgrec.espressosamples;
+package com.vgrec.espressoexamples.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.vgrec.R;
+import com.vgrec.espressoexamples.R;
 
 
 public class EnterNameActivity extends ActionBarActivity {

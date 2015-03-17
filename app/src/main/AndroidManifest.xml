@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vgrec" >
+    package="com.vgrec.espressoexamples" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".espressosamples.MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,16 +17,59 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".espressosamples.EnterNameActivity"
-            android:label="@string/title_activity_enter_name" >
+            android:name=".activities.EnterNameActivity"
+            android:label="@string/title_activity_enter_name" />
+        <activity
+            android:name=".activities.DisplayNameActivity"
+            android:label="@string/title_activity_display_name" />
+        <activity
+            android:name=".activities.SpinnerSelectionActivity"
+            android:label="@string/title_activity_spinner_selection" />
+        <activity
+            android:name=".activities.CustomListActivity"
+            android:label="@string/title_activity_custom_list" />
+        <activity
+            android:name=".activities.BookDetailsActivity"
+            android:label="@string/title_activity_book_details" />
+        <activity
+            android:name=".activities.SearchableActivity"
+            android:label="@string/title_activity_searchable" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".espressosamples.DisplayNameActivity"
-            android:label="@string/title_activity_display_name" >
+            android:name=".activities.SearchViewActivity"
+            android:label="@string/title_activity_search_view" />
+
+        <provider
+            android:name=".provider.AppRecentSearchesProvider"
+            android:authorities="com.vgrec.espressoexamples"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.ActionBarExampleActivity"
+            android:label="@string/title_activity_action_bar_example" >
         </activity>
         <activity
-            android:name=".espressosamples.SpinnerSelectionActivity"
-            android:label="@string/title_activity_spinner_selection" >
+            android:name=".activities.ViewPagerActivity"
+            android:label="@string/title_activity_view_pager" >
+        </activity>
+        <activity
+            android:name=".activities.DialogExampleActivity"
+            android:label="@string/title_activity_dialog_example" >
+        </activity>
+        <activity
+            android:name=".activities.RecyclerViewActivity"
+            android:label="@string/title_activity_recycler_view" >
+        </activity>
+        <activity
+            android:name=".activities.DateTimePickerActivity"
+            android:label="@string/title_activity_date_time_picker" >
         </activity>
     </application>
 

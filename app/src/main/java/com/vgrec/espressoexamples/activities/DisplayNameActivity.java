@@ -1,10 +1,10 @@
-package com.vgrec.espressosamples;
+package com.vgrec.espressoexamples.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
-import com.vgrec.R;
+import com.vgrec.espressoexamples.R;
 
 
 public class DisplayNameActivity extends ActionBarActivity {
