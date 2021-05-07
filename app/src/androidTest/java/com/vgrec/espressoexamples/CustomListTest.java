@@ -1,15 +1,13 @@
 package com.vgrec.espressoexamples;
 
-import android.test.ActivityInstrumentationTestCase2;
-
 import com.vgrec.espressoexamples.activities.CustomListActivity;
 
-import static android.support.test.espresso.Espresso.onData;
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.espresso.Espresso.onData;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.vgrec.espressoexamples.matchers.CustomMatchers.withBookAuthor;
 import static com.vgrec.espressoexamples.matchers.CustomMatchers.withBookId;
 import static com.vgrec.espressoexamples.matchers.CustomMatchers.withBookTitle;
@@ -20,7 +18,7 @@ import static org.hamcrest.CoreMatchers.anything;
 /**
  * @author vgrec, created on 3/18/15.
  */
-public class CustomListTest extends ActivityInstrumentationTestCase2<CustomListActivity> {
+public class CustomListTest {
 
     private static final String BOOK_TITLE = "Java Concurrency in Practice";
     private static final String BOOK_AUTHOR = "Brian Goetz";

@@ -1,15 +1,15 @@
 package com.vgrec.espressoexamples.activities;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.widget.TextView;
 
 import com.vgrec.espressoexamples.R;
 
-public class DialogExampleActivity extends ActionBarActivity {
+public class DialogExampleActivity extends AppCompatActivity {
 
     private TextView statusTextView;
 

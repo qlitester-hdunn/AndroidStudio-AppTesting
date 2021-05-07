@@ -1,15 +1,15 @@
 package com.vgrec.espressoexamples.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.vgrec.espressoexamples.R;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
         setListener(R.id.pickers_button, DateTimePickerActivity.class);
     }
 
-    private <T extends Activity> void setListener(int buttonResId, final Class<T> activity) {
+    private <T extends AppCompatActivity> void setListener(int buttonResId, final Class<T> activity) {
         findViewById(buttonResId).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

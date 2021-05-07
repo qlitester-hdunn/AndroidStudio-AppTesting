@@ -1,7 +1,7 @@
 package com.vgrec.espressoexamples.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.vgrec.espressoexamples.R;
 
 
-public class SpinnerSelectionActivity extends ActionBarActivity {
+public class SpinnerSelectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

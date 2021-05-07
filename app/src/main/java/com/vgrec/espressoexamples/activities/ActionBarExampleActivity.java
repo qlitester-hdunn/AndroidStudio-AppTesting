@@ -1,18 +1,19 @@
 package com.vgrec.espressoexamples.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
+
 import com.vgrec.espressoexamples.R;
 
 
-public class ActionBarExampleActivity extends ActionBarActivity {
+public class ActionBarExampleActivity extends AppCompatActivity {
 
     private TextView statusTextView;
     private ActionMode actionMode;

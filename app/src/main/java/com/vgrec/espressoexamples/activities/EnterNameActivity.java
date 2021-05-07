@@ -2,7 +2,7 @@ package com.vgrec.espressoexamples.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.vgrec.espressoexamples.R;
 
 
-public class EnterNameActivity extends ActionBarActivity {
+public class EnterNameActivity extends AppCompatActivity {
 
     public static final String NAME = "text";
 

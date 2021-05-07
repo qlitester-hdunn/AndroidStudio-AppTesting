@@ -3,7 +3,7 @@ package com.vgrec.espressoexamples.activities;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -13,7 +13,7 @@ import com.vgrec.espressoexamples.R;
 
 import java.util.Calendar;
 
-public class DateTimePickerActivity extends ActionBarActivity {
+public class DateTimePickerActivity extends AppCompatActivity {
 
     private TextView statusTextView;
 

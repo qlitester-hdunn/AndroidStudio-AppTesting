@@ -2,10 +2,11 @@ package com.vgrec.espressoexamples.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.vgrec.espressoexamples.Database;
 import com.vgrec.espressoexamples.R;
@@ -13,7 +14,7 @@ import com.vgrec.espressoexamples.adapter.BooksAdapter;
 import com.vgrec.espressoexamples.models.Book;
 
 
-public class CustomListActivity extends ActionBarActivity {
+public class CustomListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
