@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
 
@@ -11,7 +12,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunnerArguments clearPackageData: 'true'
     }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,20 +27,40 @@ android {
     }
 }
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'androidx.appcompat:appcompat:1.0.0'
-    compile 'com.jpardogo.materialtabstrip:library:1.0.9'
-    compile 'androidx.recyclerview:recyclerview:1.0.0'
 
-    // Testing dependencies
-    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
-    androidTestCompile 'androidx.test.espresso:espresso-core:3.1.0'
-    androidTestCompile('androidx.test.espresso:espresso-contrib:3.1.0') {
-        exclude group: 'com.android.support', module: 'appcompat'
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude module: 'recyclerview-v7'
-    }
+
+dependencies {
+
+    def espressoVersion = '3.3.0'
+    def junitVersion = '1.1.0'
+    def junitVersionUpdated = '1.1.2'
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.jpardogo.materialtabstrip:library:1.0.9'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    // Testing
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation "androidx.test.ext:junit:${junitVersionUpdated}"
+    androidTestImplementation "androidx.test:rules:${junitVersion}"
+    androidTestUtil "androidx.test:orchestrator:${junitVersion}"
+
+    // Espresso dependencies
+    androidTestImplementation "androidx.test.espresso:espresso-core:${espressoVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:${espressoVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:${espressoVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-accessibility:${espressoVersion}"
+    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:${espressoVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:${espressoVersion}"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.2.0"
+
+    androidTestImplementation "com.github.javafaker:javafaker:0.16"
+    androidTestImplementation "com.jakewharton.espresso:okhttp3-idling-resource:1.0.0"
+
 }
 
 android {

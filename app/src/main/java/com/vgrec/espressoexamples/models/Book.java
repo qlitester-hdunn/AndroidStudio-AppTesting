@@ -1,7 +1,7 @@
 package com.vgrec.espressoexamples.models;
 
 /**
- * @author vgrec, created on 3/18/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
 public class Book {
     private int id;

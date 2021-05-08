@@ -1,11 +1,12 @@
 package com.vgrec.espressoexamples;
 
-import android.test.ActivityInstrumentationTestCase2;
+
 import android.widget.EditText;
 
-import com.vgrec.espressoexamples.activities.SearchViewActivity;
+import com.vgrec.espressoexamples.bases.TestBase;
 
 import org.hamcrest.Matchers;
+import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
@@ -27,22 +28,14 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.not;
 
 /**
- * @author vgrec, created on 3/19/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
-public class SearchViewTest extends ActivityInstrumentationTestCase2<SearchViewActivity> {
+
+public class SearchViewTest extends TestBase {
 
     public static final String HELSINKI = "Helsinki";
 
-    public SearchViewTest() {
-        super(SearchViewActivity.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        getActivity();
-    }
-
+    @Test
     public void testItemNotFound() {
         // Click on the search icon
         onView(withId(R.id.action_search)).perform(click());
@@ -54,6 +47,7 @@ public class SearchViewTest extends ActivityInstrumentationTestCase2<SearchViewA
         onView(withId(R.id.empty_view)).check(matches(isDisplayed()));
     }
 
+    @Test
     public void testItemFound() {
         onView(withId(R.id.action_search)).perform(click());
         onView(isAssignableFrom(EditText.class)).perform(typeText(HELSINKI), pressImeActionButton());
@@ -65,6 +59,7 @@ public class SearchViewTest extends ActivityInstrumentationTestCase2<SearchViewA
         onData(allOf(is(instanceOf(String.class)), withItemContent(HELSINKI))).check(matches(isDisplayed()));
     }
 
+    @Test
     public void testSearchSuggestionDisplayed() {
         onView(withId(R.id.action_search)).perform(click());
         onView(isAssignableFrom(EditText.class)).perform(typeText(HELSINKI), pressImeActionButton());
@@ -80,10 +75,11 @@ public class SearchViewTest extends ActivityInstrumentationTestCase2<SearchViewA
 
         // Check the search suggestions appear
         onView(withText(HELSINKI))
-                .inRoot(withDecorView(not(Matchers.is(getActivity().getWindow().getDecorView()))))
+                .inRoot(withDecorView(not(Matchers.is(this.activity.getWindow().getDecorView()))))
                 .check(matches(isDisplayed()));
     }
 
+    @Test
     public void testClickOnSearchSuggestion() {
         onView(withId(R.id.action_search)).perform(click());
         onView(isAssignableFrom(EditText.class)).perform(typeText(HELSINKI), pressImeActionButton());
@@ -100,7 +96,7 @@ public class SearchViewTest extends ActivityInstrumentationTestCase2<SearchViewA
 
         // Click on the "Java" item from the suggestions list
         onView(withText(HELSINKI))
-                .inRoot(withDecorView(not(Matchers.is(getActivity().getWindow().getDecorView()))))
+                .inRoot(withDecorView(not(Matchers.is(this.activity.getWindow().getDecorView()))))
                 .perform(click());
 
         // Check the item appears in search results list.

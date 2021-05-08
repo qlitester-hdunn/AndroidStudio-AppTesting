@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * This class holds constants with some data for testing.
  *
- * @author vgrec, created on 3/23/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
 public class Database {
 

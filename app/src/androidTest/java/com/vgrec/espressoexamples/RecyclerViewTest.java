@@ -1,9 +1,8 @@
 package com.vgrec.espressoexamples;
 
 import androidx.test.espresso.contrib.RecyclerViewActions;
-import android.test.ActivityInstrumentationTestCase2;
 
-import com.vgrec.espressoexamples.activities.RecyclerViewActivity;
+import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -13,23 +12,14 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 /**
- * @author vgrec, created on 3/30/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
-public class RecyclerViewTest extends ActivityInstrumentationTestCase2<RecyclerViewActivity> {
+public class RecyclerViewTest  {
 
     private static final String BOOK_TITLE = "Clean Code";
     private static final String BOOK_AUTHOR = "Robert C. Martin";
 
-    public RecyclerViewTest() {
-        super(RecyclerViewActivity.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        getActivity();
-    }
-
+    @Test
     public void testClickAtPosition() {
         // Perform a click on first element in the RecyclerView
         onView(withId(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
@@ -38,6 +28,7 @@ public class RecyclerViewTest extends ActivityInstrumentationTestCase2<RecyclerV
         onView(withId(R.id.book_author)).check(matches(withText(BOOK_AUTHOR)));
     }
 
+    @Test
     public void testClickOnViewInRow() {
         // Perform click on an element with a specific text
         onView(withId(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItem(

@@ -1,6 +1,8 @@
 package com.vgrec.espressoexamples;
 
-import com.vgrec.espressoexamples.activities.CustomListActivity;
+import com.vgrec.espressoexamples.bases.CustomListActivityBase;
+
+import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
@@ -16,24 +18,17 @@ import static org.hamcrest.CoreMatchers.anything;
 
 
 /**
- * @author vgrec, created on 3/18/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
-public class CustomListTest {
+public class CustomListTest extends CustomListActivityBase {
 
     private static final String BOOK_TITLE = "Java Concurrency in Practice";
     private static final String BOOK_AUTHOR = "Brian Goetz";
 
-    public CustomListTest() {
-        super(CustomListActivity.class);
-    }
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        getActivity();
-    }
-
+    @Test
     public void testOpenBookById() {
+
         // Click on the Book with ID 5
         onData(withBookId(5)).perform(click());
 
@@ -44,6 +39,7 @@ public class CustomListTest {
         onView(withId(R.id.book_author)).check(matches(withText(BOOK_AUTHOR)));
     }
 
+    @Test
     public void testOpenBookByTitleAndAuthor() {
         // Match a book with a specific title and author name
         onData(allOf(withBookTitle(BOOK_TITLE), withBookAuthor(BOOK_AUTHOR))).perform(click());
@@ -55,6 +51,7 @@ public class CustomListTest {
         onView(withId(R.id.book_author)).check(matches(withText(BOOK_AUTHOR)));
     }
 
+    @Test
     public void testClickOnBookByPosition(){
         onData(anything()).atPosition(5).perform(click());
         onView(withId(R.id.book_title)).check(matches(withText(BOOK_TITLE)));

@@ -1,9 +1,9 @@
 package com.vgrec.espressoexamples;
 
-import android.test.ActivityInstrumentationTestCase2;
+
 import android.widget.AdapterView;
 
-import com.vgrec.espressoexamples.activities.ViewPagerActivity;
+import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
@@ -20,23 +20,14 @@ import static org.hamcrest.CoreMatchers.allOf;
 
 
 /**
- * @author vgrec, created on 3/23/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
-public class ViewPagerTest extends ActivityInstrumentationTestCase2<ViewPagerActivity> {
+public class ViewPagerTest {
 
     private static final String BOOK_TITLE = "Clean Code";
     private static final String BOOK_AUTHOR = "Robert C. Martin";
 
-    public ViewPagerTest() {
-        super(ViewPagerActivity.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        getActivity();
-    }
-
+    @Test
     public void testAllTabDisplayedOnSwipe() {
         // Locate the ViewPager and perform a swipe left action
         onView(withId(R.id.pager)).perform(swipeLeft());
@@ -45,6 +36,7 @@ public class ViewPagerTest extends ActivityInstrumentationTestCase2<ViewPagerAct
         onView(allOf(withId(R.id.header_text), isDisplayed())).check(matches(withText("ALL BOOKS")));
     }
 
+    @Test
     public void testClickOnBookFromNewTab() {
         // The below commented out line will fail with AmbiguousViewMatcherException because the same ListView is used in both pages of ViewPager.
         // onData(allOf(withBookTitle(BOOK_TITLE), withBookAuthor(BOOK_AUTHOR))).perform(click());

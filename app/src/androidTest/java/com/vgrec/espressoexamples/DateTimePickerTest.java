@@ -1,11 +1,9 @@
 package com.vgrec.espressoexamples;
 
-import androidx.test.espresso.contrib.PickerActions;
-import android.test.ActivityInstrumentationTestCase2;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
-import com.vgrec.espressoexamples.activities.DateTimePickerActivity;
+import androidx.test.espresso.contrib.PickerActions;
 
 import org.hamcrest.Matchers;
 
@@ -17,18 +15,10 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 /**
- * @author vgrec, created on 4/2/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
-public class DateTimePickerTest extends ActivityInstrumentationTestCase2<DateTimePickerActivity> {
-    public DateTimePickerTest() {
-        super(DateTimePickerActivity.class);
-    }
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        getActivity();
-    }
+public class DateTimePickerTest {
 
     public void testSetDate() {
         int year = 2020;

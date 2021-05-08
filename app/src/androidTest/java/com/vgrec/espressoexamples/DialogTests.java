@@ -1,8 +1,6 @@
 package com.vgrec.espressoexamples;
 
-import android.test.ActivityInstrumentationTestCase2;
-
-import com.vgrec.espressoexamples.activities.DialogExampleActivity;
+import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -11,21 +9,13 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+
 /**
- * @author vgrec, created on 3/24/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
-public class DialogTests extends ActivityInstrumentationTestCase2<DialogExampleActivity> {
 
-    public DialogTests() {
-        super(DialogExampleActivity.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        getActivity();
-    }
-
+public class DialogTests {
+    @Test
     public void testCheckDialogDisplayed() {
         // Click on the button that shows the dialog
         onView(withId(R.id.confirm_dialog_button)).perform(click());
@@ -33,7 +23,7 @@ public class DialogTests extends ActivityInstrumentationTestCase2<DialogExampleA
         // Check the dialog title text is displayed
         onView(withText(R.string.dialog_title)).check(matches(isDisplayed()));
     }
-
+    @Test
     public void testClickOkButton() {
         onView(withId(R.id.confirm_dialog_button)).perform(click());
 

@@ -1,9 +1,10 @@
 package com.vgrec.espressoexamples.matchers;
 
-import androidx.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+
+import androidx.test.espresso.matcher.BoundedMatcher;
 
 import com.vgrec.espressoexamples.models.Book;
 
@@ -11,11 +12,11 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import static com.android.support.test.deps.guava.base.Preconditions.checkNotNull;
+import static androidx.core.util.Preconditions.checkNotNull;
 import static org.hamcrest.Matchers.equalTo;
 
 /**
- * @author vgrec, created on 3/17/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
 public class CustomMatchers {
 

@@ -3,7 +3,7 @@ package com.vgrec.espressoexamples.provider;
 import android.content.SearchRecentSuggestionsProvider;
 
 /**
- * @author vgrec, created on 3/18/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
 public class AppRecentSearchesProvider extends SearchRecentSuggestionsProvider {
 

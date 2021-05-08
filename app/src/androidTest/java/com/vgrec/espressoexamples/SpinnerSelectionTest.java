@@ -1,9 +1,5 @@
 package com.vgrec.espressoexamples;
 
-import android.test.ActivityInstrumentationTestCase2;
-
-import com.vgrec.espressoexamples.activities.SpinnerSelectionActivity;
-
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -19,23 +15,14 @@ import static org.hamcrest.Matchers.not;
 
 
 /**
- * @author vgrec, created on 3/17/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
-public class SpinnerSelectionTest extends ActivityInstrumentationTestCase2<SpinnerSelectionActivity> {
+
+public class SpinnerSelectionTest {
 
     public static final String INVALID_COUNTRY_NAME = "NoSuchCountry";
     public static final String VALID_COUNTRY_NAME = "Moldova";
     public static final String FIRST_ITEM_TEXT = "Select your country";
-
-    public SpinnerSelectionTest() {
-        super(SpinnerSelectionActivity.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        getActivity();
-    }
 
     public void testCountryNotInList() {
         onView(withId(R.id.countries_spinner)).check(matches(not(withAdaptedData(withItemContent(INVALID_COUNTRY_NAME)))));

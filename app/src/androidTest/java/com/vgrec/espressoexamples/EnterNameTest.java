@@ -1,8 +1,6 @@
 package com.vgrec.espressoexamples;
 
-import android.test.ActivityInstrumentationTestCase2;
-
-import com.vgrec.espressoexamples.activities.EnterNameActivity;
+import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -15,27 +13,20 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.not;
 
 /**
- * @author vgrec, created on 3/17/15.
+ * @author  HDunn, Modifed on 4/30/21.
  */
-public class EnterNameTest extends ActivityInstrumentationTestCase2<EnterNameActivity> {
+
+public class EnterNameTest {
 
     public static final String USER_NAME = "John";
     public static final String GREETING_MESSAGE = "Hello " + USER_NAME + "!";
 
-    public EnterNameTest() {
-        super(EnterNameActivity.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        getActivity();
-    }
-
+    @Test
     public void testHintDisplayed() {
         onView(withId(R.id.name_edittext)).check(matches(withHint(R.string.enter_name)));
     }
 
+    @Test
     public void testErrorMessageDisplayed() {
         // Making sure the error message is not displayed by default
         onView(withId(R.id.error_text)).check(matches(not(isDisplayed())));
@@ -47,6 +38,7 @@ public class EnterNameTest extends ActivityInstrumentationTestCase2<EnterNameAct
         onView(withId(R.id.error_text)).check(matches(isDisplayed()));
     }
 
+    @Test
     public void testGreetingMessageWithNameDisplayed() {
         onView(withId(R.id.name_edittext)).perform(typeText(USER_NAME));
         onView(withId(R.id.next_button)).perform(click());
