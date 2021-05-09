@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
 
@@ -60,6 +61,8 @@ dependencies {
 
     androidTestImplementation "com.github.javafaker:javafaker:0.16"
     androidTestImplementation "com.jakewharton.espresso:okhttp3-idling-resource:1.0.0"
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 }
 
@@ -67,4 +70,7 @@ android {
     packagingOptions {
         exclude 'LICENSE.txt'
     }
+}
+repositories {
+    mavenCentral()
 }

@@ -16,7 +16,7 @@ import com.vgrec.espressoexamples.models.Book;
 /**
  * The adapter used by RecyclerView to display books.
  *
- * @author  HDunn, Modifed on 4/30/21.
+ * @author  HDunn, Modified on 4/30/21.
  */
 public class RecyclerBooksAdapter extends RecyclerView.Adapter<RecyclerBooksAdapter.RowHolder> {
 
