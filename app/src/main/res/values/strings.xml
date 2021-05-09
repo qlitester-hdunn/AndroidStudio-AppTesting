@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">EspressoExamples</string>
-
+    <string name="app_name">UI Espresso Tester</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="type_text">Type text</string>
