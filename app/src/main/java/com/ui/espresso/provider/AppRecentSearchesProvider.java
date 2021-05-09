@@ -7,7 +7,7 @@ import android.content.SearchRecentSuggestionsProvider;
  */
 public class AppRecentSearchesProvider extends SearchRecentSuggestionsProvider {
 
-    public final static String AUTHORITY = "com.ui.espressoexamples";
+    public final static String AUTHORITY = "com.ui.espresso";
     public final static int MODE = DATABASE_MODE_QUERIES;
 
     public AppRecentSearchesProvider() {
