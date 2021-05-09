@@ -3,7 +3,7 @@ package com.ui.espresso.provider;
 import android.content.SearchRecentSuggestionsProvider;
 
 /**
- * @author  HDunn, Modifed on 4/30/21.
+ * @author  HDunn, Modified on 4/30/21.
  */
 public class AppRecentSearchesProvider extends SearchRecentSuggestionsProvider {
 

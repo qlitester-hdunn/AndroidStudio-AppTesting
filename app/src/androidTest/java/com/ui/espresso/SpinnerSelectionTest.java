@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.not;
 
 
 /**
- * @author  HDunn, Modifed on 4/30/21.
+ * @author  HDunn, Modified on 4/30/21.
  */
 
 public class SpinnerSelectionTest extends TestBase {

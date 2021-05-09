@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.anything;
 
 
 /**
- * @author  HDunn, Modifed on 4/30/21.
+ * @author  HDunn, Modified on 4/30/21.
  */
 public class CustomListTest extends CustomListActivityBase {
 

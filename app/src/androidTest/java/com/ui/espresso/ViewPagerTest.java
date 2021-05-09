@@ -26,7 +26,7 @@ import static org.hamcrest.CoreMatchers.allOf;
 
 
 /**
- * @author  HDunn, Modifed on 4/30/21.
+ * @author  HDunn, Modified on 4/30/21.
  */
 public class ViewPagerTest extends TestBase {
 
