@@ -3,6 +3,9 @@ package com.vgrec.espressoexamples;
 
 import android.widget.AdapterView;
 
+import com.vgrec.espressoexamples.bases.TestBase;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onData;
@@ -22,10 +25,16 @@ import static org.hamcrest.CoreMatchers.allOf;
 /**
  * @author  HDunn, Modifed on 4/30/21.
  */
-public class ViewPagerTest {
+public class ViewPagerTest extends TestBase {
 
     private static final String BOOK_TITLE = "Clean Code";
     private static final String BOOK_AUTHOR = "Robert C. Martin";
+
+    @Before
+    public void navigateToViewpager(){
+        // From Main navigate to viewpager
+        onView(withId(R.id.viewpager_button)).perform(click());
+    }
 
     @Test
     public void testAllTabDisplayedOnSwipe() {
@@ -38,10 +47,16 @@ public class ViewPagerTest {
 
     @Test
     public void testClickOnBookFromNewTab() {
-        // The below commented out line will fail with AmbiguousViewMatcherException because the same ListView is used in both pages of ViewPager.
+        // Fails with AmbiguousViewMatcherException as same ListView is used in both pages of ViewPager.
         // onData(allOf(withBookTitle(BOOK_TITLE), withBookAuthor(BOOK_AUTHOR))).perform(click());
 
-        // We have to refine the query specifying that we are looking for an AdapterView that is currently visible.
+        // Forcing a fail if no click - now at ALL BOOKS
+        onView(withId(R.id.pager)).perform(swipeLeft());
+
+        // Click on "New" now ListView is displayed
+        onView(withText("New")).perform(click());
+
+        // Refine query specifying an AdapterView that is currently visible (isDisplayed).
         onData(allOf(withBookTitle(BOOK_TITLE), withBookAuthor(BOOK_AUTHOR)))
                 .inAdapterView(allOf(isAssignableFrom(AdapterView.class), isDisplayed()))
                 .perform(click());

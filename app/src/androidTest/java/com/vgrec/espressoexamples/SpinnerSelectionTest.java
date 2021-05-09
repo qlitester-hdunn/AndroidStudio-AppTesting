@@ -1,5 +1,10 @@
 package com.vgrec.espressoexamples;
 
+import com.vgrec.espressoexamples.bases.TestBase;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -18,16 +23,24 @@ import static org.hamcrest.Matchers.not;
  * @author  HDunn, Modifed on 4/30/21.
  */
 
-public class SpinnerSelectionTest {
+public class SpinnerSelectionTest extends TestBase {
 
     public static final String INVALID_COUNTRY_NAME = "NoSuchCountry";
     public static final String VALID_COUNTRY_NAME = "Moldova";
     public static final String FIRST_ITEM_TEXT = "Select your country";
 
+    @Before
+    public void navigateToSpinnerSelection(){
+        // From Main navigate to spinner selection
+        onView(withId(R.id.spinner_selection_button)).perform(click());
+    }
+
+    @Test
     public void testCountryNotInList() {
         onView(withId(R.id.countries_spinner)).check(matches(not(withAdaptedData(withItemContent(INVALID_COUNTRY_NAME)))));
     }
 
+    @Test
     public void testLabelDoesNotChangeIfFirstItemSelected() {
         // Click on the Spinner
         onView(withId(R.id.countries_spinner)).perform(click());
@@ -39,6 +52,7 @@ public class SpinnerSelectionTest {
         onView(withId(R.id.country_label)).check(matches(not(withText(FIRST_ITEM_TEXT))));
     }
 
+    @Test
     public void testLabelUpdatesIfValidCountrySelected() {
         // Click on the Spinner
         onView(withId(R.id.countries_spinner)).perform(click());

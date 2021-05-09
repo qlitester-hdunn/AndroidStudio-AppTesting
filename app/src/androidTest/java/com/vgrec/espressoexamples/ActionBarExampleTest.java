@@ -35,6 +35,10 @@ public class ActionBarExampleTest extends TestBase {
 
     @Test
     public void testOverflowMenuOrOptionsMenu() {
+
+        // From Main navigate to ActionBar
+        onView(withId(R.id.action_bar_button)).perform(click());
+
         // Open the action bar overflow or options menu (depending if the device has or not a hardware menu button.)
         openActionBarOverflowOrOptionsMenu(ApplicationProvider.getApplicationContext());
 
@@ -47,6 +51,9 @@ public class ActionBarExampleTest extends TestBase {
 
     @Test
     public void testActionMode() {
+        // From Main navigate to ActionBar
+        onView(withId(R.id.action_bar_button)).perform(click());
+        
         // Show the contextual ActionBar
         onView(withId(R.id.toggle_action_mode)).perform(click());
 

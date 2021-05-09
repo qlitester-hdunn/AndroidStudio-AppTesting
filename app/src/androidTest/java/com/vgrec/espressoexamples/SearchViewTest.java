@@ -6,6 +6,7 @@ import android.widget.EditText;
 import com.vgrec.espressoexamples.bases.TestBase;
 
 import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onData;
@@ -34,6 +35,12 @@ import static org.hamcrest.Matchers.not;
 public class SearchViewTest extends TestBase {
 
     public static final String HELSINKI = "Helsinki";
+
+    @Before
+    public void navigateToSearchView(){
+        // From Main navigate to search view
+        onView(withId(R.id.search_view_button)).perform(click());
+    }
 
     @Test
     public void testItemNotFound() {

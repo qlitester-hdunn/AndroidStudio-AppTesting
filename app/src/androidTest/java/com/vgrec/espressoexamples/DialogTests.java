@@ -1,5 +1,8 @@
 package com.vgrec.espressoexamples;
 
+import com.vgrec.espressoexamples.bases.TestBase;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -14,7 +17,14 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
  * @author  HDunn, Modifed on 4/30/21.
  */
 
-public class DialogTests {
+public class DialogTests extends TestBase {
+
+    @Before
+    public void navigateToDialogs(){
+        // From Main navigate to date time pickers
+        onView(withId(R.id.dialogs_button)).perform(click());
+    }
+
     @Test
     public void testCheckDialogDisplayed() {
         // Click on the button that shows the dialog

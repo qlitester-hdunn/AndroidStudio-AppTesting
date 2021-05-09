@@ -2,6 +2,9 @@ package com.vgrec.espressoexamples;
 
 import androidx.test.espresso.contrib.RecyclerViewActions;
 
+import com.vgrec.espressoexamples.bases.TestBase;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -14,10 +17,17 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 /**
  * @author  HDunn, Modifed on 4/30/21.
  */
-public class RecyclerViewTest  {
+public class RecyclerViewTest extends TestBase {
 
     private static final String BOOK_TITLE = "Clean Code";
     private static final String BOOK_AUTHOR = "Robert C. Martin";
+
+
+    @Before
+    public void navigateToRecyclerView(){
+        // From Main navigate to recycler view
+        onView(withId(R.id.recycler_view_button)).perform(click());
+    }
 
     @Test
     public void testClickAtPosition() {

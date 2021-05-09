@@ -1,5 +1,8 @@
 package com.vgrec.espressoexamples;
 
+import com.vgrec.espressoexamples.bases.TestBase;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -16,10 +19,16 @@ import static org.hamcrest.CoreMatchers.not;
  * @author  HDunn, Modifed on 4/30/21.
  */
 
-public class EnterNameTest {
+public class EnterNameTest extends TestBase {
 
     public static final String USER_NAME = "John";
     public static final String GREETING_MESSAGE = "Hello " + USER_NAME + "!";
+
+    @Before
+    public void navigateToTypeText(){
+        // From Main navigate to type text
+        onView(withId(R.id.type_text_button)).perform(click());
+    }
 
     @Test
     public void testHintDisplayed() {
