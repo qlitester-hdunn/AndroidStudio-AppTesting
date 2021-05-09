@@ -12,7 +12,6 @@
             android:label="UI-Espresso-Testing" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,6 +27,12 @@
         <activity
             android:name="com.ui.espresso.activities.CustomListActivity"
             android:label="@string/title_activity_custom_list" />
+        <activity
+            android:name="com.ui.espresso.activities.NamesListActivity"
+            android:label="@string/title_activity_custom_list" />
+        <activity
+            android:name="com.ui.espresso.activities.PersonDetailsActivity"
+            android:label="@string/person_list_adapter" />
         <activity
             android:name="com.ui.espresso.activities.BookDetailsActivity"
             android:label="@string/title_activity_book_details" />

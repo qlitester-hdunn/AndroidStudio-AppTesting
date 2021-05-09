@@ -2,14 +2,15 @@ package com.ui.espresso.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.ui.espresso.R;
 
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setListener(R.id.type_text_button, EnterNameActivity.class);
         setListener(R.id.spinner_selection_button, SpinnerSelectionActivity.class);
         setListener(R.id.custom_list_adapter_button, CustomListActivity.class);
+        setListener(R.id.person_list_adapter_button, NamesListActivity.class);
         setListener(R.id.search_view_button, SearchViewActivity.class);
         setListener(R.id.action_bar_button, ActionBarExampleActivity.class);
         setListener(R.id.viewpager_button, ViewPagerActivity.class);

@@ -5,12 +5,13 @@
     <string name="type_text">Type text</string>
     <string name="spinner_selection">Spinner selection</string>
     <string name="custom_list_adapter">Custom List Adapter</string>
+    <string name="person_list_adapter">Person List Adapter</string>
     <string name="search_view">SearchView</string>
     <string name="actionbar">ActionBar</string>
     <string name="viewpager">ViewPager</string>
     <string name="dialogs">Dialogs</string>
     <string name="recyclerview">RecyclerView</string>
-    <string name="examples_of_features_tested">Examples of features tested</string>
+    <string name="examples_of_features_tested">Features tested</string>
     <string name="title_activity_enter_name">EnterNameActivity</string>
     <string name="enter_name">Enter name</string>
     <string name="next">Next</string>
