@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vgrec.espressoexamples" >
+    package="com.ui.espresso" >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="UI-Espresso-Testing"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activities.MainActivity"
-            android:label="@string/app_name" >
+            android:name="com.ui.espresso.activities.MainActivity"
+            android:label="UI-Espresso-Testing" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,22 +17,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.EnterNameActivity"
+            android:name="com.ui.espresso.activities.EnterNameActivity"
             android:label="@string/title_activity_enter_name" />
         <activity
-            android:name=".activities.DisplayNameActivity"
+            android:name="com.ui.espresso.activities.DisplayNameActivity"
             android:label="@string/title_activity_display_name" />
         <activity
-            android:name=".activities.SpinnerSelectionActivity"
+            android:name="com.ui.espresso.activities.SpinnerSelectionActivity"
             android:label="@string/title_activity_spinner_selection" />
         <activity
-            android:name=".activities.CustomListActivity"
+            android:name="com.ui.espresso.activities.CustomListActivity"
             android:label="@string/title_activity_custom_list" />
         <activity
-            android:name=".activities.BookDetailsActivity"
+            android:name="com.ui.espresso.activities.BookDetailsActivity"
             android:label="@string/title_activity_book_details" />
         <activity
-            android:name=".activities.SearchableActivity"
+            android:name="com.ui.espresso.activities.SearchableActivity"
             android:label="@string/title_activity_searchable" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -43,32 +43,32 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".activities.SearchViewActivity"
+            android:name="com.ui.espresso.activities.SearchViewActivity"
             android:label="@string/title_activity_search_view" />
 
         <provider
-            android:name=".provider.AppRecentSearchesProvider"
-            android:authorities="com.vgrec.espressoexamples"
+            android:name="com.ui.espresso.provider.AppRecentSearchesProvider"
+            android:authorities="com.ui.espresso"
             android:exported="false" />
 
         <activity
-            android:name=".activities.ActionBarExampleActivity"
+            android:name="com.ui.espresso.activities.ActionBarExampleActivity"
             android:label="@string/title_activity_action_bar_example" >
         </activity>
         <activity
-            android:name=".activities.ViewPagerActivity"
+            android:name="com.ui.espresso.activities.ViewPagerActivity"
             android:label="@string/title_activity_view_pager" >
         </activity>
         <activity
-            android:name=".activities.DialogExampleActivity"
+            android:name="com.ui.espresso.activities.DialogExampleActivity"
             android:label="@string/title_activity_dialog_example" >
         </activity>
         <activity
-            android:name=".activities.RecyclerViewActivity"
+            android:name="com.ui.espresso.activities.RecyclerViewActivity"
             android:label="@string/title_activity_recycler_view" >
         </activity>
         <activity
-            android:name=".activities.DateTimePickerActivity"
+            android:name="com.ui.espresso.activities.DateTimePickerActivity"
             android:label="@string/title_activity_date_time_picker" >
         </activity>
     </application>
