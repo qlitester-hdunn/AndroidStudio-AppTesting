@@ -1,10 +1,12 @@
+//
 package com.ui.espresso
 
 import android.content.Context
 import java.io.IOException
 
-class DataAssetsJsonFetch(private var assetFileName: String, private var context: Context) {
 
+class DataAssetsJsonFetch(@JvmField var assetFileName: String, @JvmField var context: Context) {
+    @JvmName("getJsonDataAsset")
     fun getJsonDataFromAsset(): String?{
         return this.getJsonDataFromAsset(context = this.context, fileName = this.assetFileName)
     }

@@ -32,11 +32,12 @@ android {
 
 dependencies {
 
+
     def espressoVersion = '3.3.0'
     def junitVersion = '1.1.0'
     def junitVersionUpdated = '1.1.2'
-    implementation "androidx.annotation:annotation:1.1.0"
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.jpardogo.materialtabstrip:library:1.0.9'

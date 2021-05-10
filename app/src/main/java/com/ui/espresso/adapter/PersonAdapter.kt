@@ -15,7 +15,9 @@ import java.util.*
  * Adapter that provides views for the list
  */
 class PersonAdapter(context: Context?, private val items: ArrayList<Person>) : BaseAdapter() {
-    private val inflater: LayoutInflater
+
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
+
     override fun getCount(): Int {
         return items.size
     }
@@ -29,18 +31,15 @@ class PersonAdapter(context: Context?, private val items: ArrayList<Person>) : B
     }
 
     override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
-        var convertView = convertView
-        if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_person, parent, false)
+      var convertedView = convertView
+        if (convertedView == null) {
+            convertedView = inflater.inflate(R.layout.item_person, parent, false)
         }
-        val personName = convertView.findViewById<View>(R.id.person_name) as TextView
-        personName.text = items[position].name
-        val personAge = convertView.findViewById<View>(R.id.person_age) as TextView
-        personAge.text = "by " + items[position].age
-        return convertView
+        val personName = convertedView.findViewById<View>(R.id.person_name) as TextView
+        personName.text = items[position].getName()
+        val personAge = convertedView.findViewById<View>(R.id.person_age) as TextView
+        personAge.text = "by " + items[position].getAge()
+        return convertedView
     }
 
-    init {
-        inflater = LayoutInflater.from(context)
-    }
 }

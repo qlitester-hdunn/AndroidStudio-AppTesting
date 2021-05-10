@@ -42,7 +42,7 @@
             android:id="@+id/person_list_adapter_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/custom_list_adapter" />
+            android:text="Person List Adapter" />
 
         <Button
             android:id="@+id/search_view_button"

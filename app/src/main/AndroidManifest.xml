@@ -29,7 +29,7 @@
             android:label="@string/title_activity_custom_list" />
         <activity
             android:name="com.ui.espresso.activities.NamesListActivity"
-            android:label="@string/title_activity_custom_list" />
+            android:label="PersonlistActiviey" />
         <activity
             android:name="com.ui.espresso.activities.PersonDetailsActivity"
             android:label="@string/person_list_adapter" />
