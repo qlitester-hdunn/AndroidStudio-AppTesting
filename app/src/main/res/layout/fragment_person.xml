@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/attribution"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_horizontal"
-        android:background="#343"
+        android:background="#464"
         android:gravity="center"
         android:padding="12dp"
         android:paddingStart="12dp"
@@ -21,16 +21,9 @@
 
     <ListView
         android:id="@+id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="631dp" />
-
-    <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:text="Icons made by Kiranshastry sourced from Flaticon(www.flaticon.com)"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textSize="10sp" />
+        android:layout_height="610dp"
+        android:background="#464"
+        tools:listfooter="footer" />
 
 </LinearLayout>

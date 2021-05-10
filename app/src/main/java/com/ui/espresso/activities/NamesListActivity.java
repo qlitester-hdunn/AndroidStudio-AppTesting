@@ -2,7 +2,9 @@ package com.ui.espresso.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -16,17 +18,20 @@ import java.util.ArrayList;
 
 
 public class NamesListActivity extends AppCompatActivity {
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        LayoutInflater inflater = getLayoutInflater();
         ConvertJson convertFetchedData =  new ConvertJson(getApplicationContext(), "datanames.json");
         ArrayList<Person> persons = convertFetchedData.getPersonFromData();
 
         setContentView(R.layout.activity_custom_list);
-
         ListView list = (ListView) findViewById(R.id.list);
+        ViewGroup footerView = (ViewGroup) inflater.inflate(R.layout.person_listview_footer,list,false);
+        list.addFooterView(footerView, null, false);
+
         list.setAdapter(new PersonAdapter(this, persons));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
