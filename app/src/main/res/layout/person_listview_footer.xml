@@ -9,7 +9,7 @@
         android:id="@+id/icon_attribution"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#8A8"
+        android:background="#CDE"
         android:gravity="center"
         android:padding="10dp"
         android:text="@string/icon_attribute"
