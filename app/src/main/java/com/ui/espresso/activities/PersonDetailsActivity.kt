@@ -10,6 +10,7 @@ class PersonDetailsActivity : AppCompatActivity() {
     companion object {
         const val NAME = "name"
         const val AGE = "age"
+        const val MSG = "messages"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +18,9 @@ class PersonDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_person_details)
         val name = findViewById<View>(R.id.person_name) as TextView
         val age = findViewById<View>(R.id.person_age) as TextView
+        val messages = findViewById<View>(R.id.person_messages) as TextView
         name.text = intent.getStringExtra(NAME)
         age.text = intent.getStringExtra(AGE)
+        messages.text = intent.getStringExtra(MSG)
     }
 }

@@ -9,11 +9,13 @@
         android:id="@+id/header_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:textSize="20sp"
+        android:layout_gravity="center|center_horizontal"
         android:background="#343"
-        android:textColor="#FFF"
         android:gravity="center"
+        android:padding="12dp"
+        android:paddingStart="12dp"
+        android:textColor="#FFF"
+        android:textSize="20sp"
         tools:text="Persons" />
 
     <ListView

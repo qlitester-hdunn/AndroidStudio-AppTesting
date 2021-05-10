@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.ui.espresso"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -36,7 +36,9 @@ dependencies {
     def espressoVersion = '3.3.0'
     def junitVersion = '1.1.0'
     def junitVersionUpdated = '1.1.2'
+
     implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -76,3 +78,4 @@ repositories {
     google()
     mavenCentral()
 }
+

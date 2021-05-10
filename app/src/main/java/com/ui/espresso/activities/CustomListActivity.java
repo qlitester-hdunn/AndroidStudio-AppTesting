@@ -27,7 +27,8 @@ public class CustomListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Book book = (Book) parent.getItemAtPosition(position);
-                Intent intent = new Intent(CustomListActivity.this, BookDetailsActivity.class);
+                Intent intent = new Intent(CustomListActivity.this,
+                        BookDetailsActivity.class);
                 intent.putExtra(BookDetailsActivity.TITLE, book.getTitle());
                 intent.putExtra(BookDetailsActivity.AUTHOR, book.getAuthor());
                 startActivity(intent);

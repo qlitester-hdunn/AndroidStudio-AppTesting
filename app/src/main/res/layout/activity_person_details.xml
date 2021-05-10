@@ -23,4 +23,10 @@
         android:layout_height="wrap_content"
         tools:text="is this old" />
 
+    <TextView
+        android:id="@+id/person_messages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="sayin " />
+
 </LinearLayout>

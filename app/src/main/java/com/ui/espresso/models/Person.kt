@@ -1,9 +1,20 @@
 package com.ui.espresso.models
 
-data class Person(
-    @JvmField var _name: String,
-    @JvmField var _age: Int,
-    @JvmField val _messages: List<String>
+import com.google.gson.annotations.SerializedName
+
+class Person (
+
+     @JvmField
+     @SerializedName("name")
+     var _name: String,
+
+     @JvmField
+     @SerializedName("age")
+     var _age: Int,
+
+     @JvmField
+     @SerializedName("messages")
+     val _messages: List<String>
 
 ){
     fun getName(): String {
