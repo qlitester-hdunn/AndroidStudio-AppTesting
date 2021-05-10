@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/attribution"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/header_text"
@@ -21,6 +22,15 @@
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="631dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Icons made by Kiranshastry sourced from Flaticon(www.flaticon.com)"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="10sp" />
 
 </LinearLayout>

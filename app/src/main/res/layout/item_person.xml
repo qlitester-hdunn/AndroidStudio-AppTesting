@@ -12,7 +12,7 @@
         android:layout_width="52dp"
         android:layout_height="60dp"
         android:layout_marginRight="8dp"
-        app:srcCompat="@drawable/book" />
+        app:srcCompat="@drawable/person" />
 
     <TextView
         android:id="@+id/person_name"
