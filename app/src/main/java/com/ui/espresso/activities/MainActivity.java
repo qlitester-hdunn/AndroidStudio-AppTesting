@@ -3,9 +3,11 @@ package com.ui.espresso.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ui.espresso.BuildConfig;
 import com.ui.espresso.R;
 
 
@@ -16,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String rv = BuildConfig.R_VER;
+        TextView addText = (TextView) findViewById(R.id.main_view_text);
+        addText.setText(addText.getText() + " ruby version: " + rv);
 
         setListener(R.id.type_text_button, EnterNameActivity.class);
         setListener(R.id.spinner_selection_button, SpinnerSelectionActivity.class);

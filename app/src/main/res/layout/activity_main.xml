@@ -14,7 +14,8 @@
         tools:context=".MainActivity">
 
         <TextView
-            android:text="@string/examples_of_features_tested"
+            android:id="@+id/main_view_text"
+            android:text="@string/features_tested"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
