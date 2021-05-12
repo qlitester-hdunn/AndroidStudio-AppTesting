@@ -14,8 +14,9 @@ import org.junit.Test
 /**
  * @author  HDunn, Modified on 5/12/21.
  *
- * TEST - TAKE ALL CONSTANTS (integers too) AND MOVE INTO - /androidTest/java/com/ui/espresso/models/BookData.kt
- * ONLY REFACTOR testClickOnBookByPosition TO PASS
+ * TEST - WORK TO TAKE ALL CONSTANTS (integers too)
+ * AND MOVE INTO - /androidTest/java/com/ui/espresso/models/BookData.kt
+ * ONLY REFACTOR ONE TEST BELOW - testClickOnBookByPosition TO PASS
  * git commit results
  *
  */
