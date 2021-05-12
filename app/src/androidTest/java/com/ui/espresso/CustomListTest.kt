@@ -5,7 +5,7 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
-import com.ui.espresso.bases.TestBase
+import com.ui.espresso.bases.CustomListActivityBase
 import com.ui.espresso.matchers.CustomMatchers
 import org.hamcrest.CoreMatchers
 import org.junit.Before
@@ -14,9 +14,13 @@ import org.junit.Test
 /**
  * @author  HDunn, Modified on 5/12/21.
  *
- * TEST - MAKE ALL PASS
+ * TEST - TAKE ALL CONSTANTS (integers too) AND MOVE INTO - /androidTest/java/com/ui/espresso/models/BookData.kt
+ * ONLY REFACTOR testClickOnBookByPosition TO PASS
+ * git commit results
+ *
  */
-class CustomListTest : TestBase() {
+class CustomListTest : CustomListActivityBase() {
+
 
     @Before
     fun navigateToBooksList(){
@@ -60,6 +64,7 @@ class CustomListTest : TestBase() {
     }
 
     companion object {
+        // MOVE and add to STRINGS IN BookData
         private const val BOOK_TITLE = "Java Concurrency in Practice"
         private const val BOOK_AUTHOR = "Brian Goetz"
     }
