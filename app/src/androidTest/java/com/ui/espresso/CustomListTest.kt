@@ -14,7 +14,7 @@ import org.junit.Test
 /**
  * @author  HDunn, Modified on 5/12/21.
  *
- * TEST - MAKE ALL PASS
+ * TEST - WORK TO MAKE ALL PASS
  */
 class CustomListTest : TestBase() {
 
@@ -26,7 +26,8 @@ class CustomListTest : TestBase() {
     @Test
     fun testOpenBookById() {
         Log.i("test","starting test open book")
-
+        
+        //navigate to Books list
         Espresso.onView(ViewMatchers.withId(R.id.custom_list_adapter_button)).perform(ViewActions.click())
 
         // Click on the Book with ID 5
