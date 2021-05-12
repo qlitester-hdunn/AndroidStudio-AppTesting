@@ -2,10 +2,10 @@
 A collection of examples demonstrating different techniques for automated testing with Espresso.
 
 
-*PLEASE STAY OUT OF BRANCH MAIN*
-*NOT TESTED ON WINDOWS*
-*YOU SHOULD KNOW A BIT OF GIT TO DO THIS*
-*PREFERRED WRITE CODE IN KOTLIN - CAN USE JAVA,IF YOU PREFER*
+  - *PLEASE STAY OUT OF BRANCH MAIN*
+  - *NOT TESTED ON WINDOWS*
+  - *YOU SHOULD KNOW A BIT OF GIT TO DO THIS*
+  - *PREFERRED WRITE CODE IN KOTLIN - CAN USE JAVA,IF YOU PREFER*
 
 
 # Start
@@ -18,18 +18,18 @@ Please switch to a testing branch
 
 ## Challenges
 
-start with test-a
-finish with test-b
-extra test-c
+  - start with test-a
+  - finish with test-b
+  - extra test-c
 
-Search for *WORK* to find tasks
+Search for *WORK* or *MAKE* to find tasks
 in the `CustomListTest`(test-a,test-b) or PersonListTest(test-c)
 
 ## finish
 
-git commit all of your work
-from a branch just
-`git push -U origin <test-a>` if working on test a
+ - git commit all of your work
+ - from a branch just
+ - `git push -U origin <test-a>` if working on test a
 
 # THANKS
 
