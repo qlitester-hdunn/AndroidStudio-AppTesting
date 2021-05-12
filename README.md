@@ -1,8 +1,8 @@
 # UI Espresso Tester
 A collection of examples demonstrating different techniques for automated testing with Espresso.
  
-  - <em>You are free to use any resource, google etc</em>
-  - <em>
+  - <em>You are free to use any resource, Google, etc.</em>
+  - <em>Please write all code youself<em> 
 
   - *PLEASE STAY OUT OF BRANCH MAIN -Thanks.*
   - *NOT tested on Windows.*

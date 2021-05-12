@@ -8,8 +8,7 @@ import com.ui.espresso.bases.TestBase
  *   - verify like flaticon is in view.
  *   - verify age or message for "tester"
  */
-class PersonListTest: TestBase() {
-    // WORK HERE
-
+class PersonListTest : TestBase() {
+    // WORK HERE test-c
 
 }
