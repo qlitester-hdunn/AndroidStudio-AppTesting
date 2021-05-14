@@ -5,11 +5,13 @@ A collection of examples demonstrating different techniques for automated testin
   - <em>Please write all code youself<em> 
 
   - *PLEASE STAY OUT OF BRANCH MAIN -Thanks.*
+  - *Please push your changes to origin <branch> repo, you can also fork the repo.*
   - *NOT tested on Windows.*
   - *you should know a bit of Git to do this.*
   - *Preferred - write code in Kotlin - but you can use Java.*
 
 # Start
+You will need Android Studio with a Pixel-2_API-28 emulator.
 You will be in the `main` branch when you start
 Please switch to a testing branch
 
