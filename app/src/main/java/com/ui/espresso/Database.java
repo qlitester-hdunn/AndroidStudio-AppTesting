@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * This class holds constants with some data for testing.
  *
- * @author  HDunn, Modified on 4/30/21.
+ * @author HDunn, Modified on 4/30/21.
  */
 public class Database {
 
@@ -23,7 +23,7 @@ public class Database {
     public static final ArrayList<Book> ALL_BOOKS = new ArrayList<>(Arrays.asList(
             new Book(1, "Clean Code", "Robert C. Martin"),
             new Book(2, "The Clean Coder", "Robert C. Martin"),
-            new Book(3, "Code Complete 2", "Steve McConnell"),
+            new Book(15, "Code Complete 2", "Steve McConnell"),
             new Book(4, "Effective Java ", "Joshua Bloch"),
             new Book(9, "Refactoring: Improving the Design of Existing Code", "Martin Fowler"),
             new Book(5, "Java Concurrency in Practice", "Brian Goetz"),
@@ -45,4 +45,11 @@ public class Database {
             "Prague",
             "Sofia"
     };
+
+    public void printAllBookIds() {
+
+        for (int i = 0; i < ALL_BOOKS.size(); i++) {
+            System.out.println("book id" + ALL_BOOKS.get(i));
+        }
+    }
 }

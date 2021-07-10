@@ -1,9 +1,7 @@
 package com.ui.espresso.models
 
 object BookData {
-
-    // "WORK HERE AND USE THESE"
-    //"Code Complete 2", "Steve McConnell"
-    //"Effective Java ", "Joshua Bloch"
-
+    const val BOOK_TITLE = "Java Concurrency in Practice"
+    const val BOOK_AUTHOR = "Brian Goetz"
+    const val BOOK_ID_5 = 5
 }
