@@ -1,50 +1,54 @@
 package com.ui.espresso
 
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ui.espresso.bases.TestBase
-import org.hamcrest.CoreMatchers
-import org.junit.Before
+import com.ui.espresso.screens.LandingPage
+import com.ui.espresso.screens.TypeText
 import org.junit.Test
+import org.junit.runner.RunWith
 
 /**
  * @author  HDunn, Modified on 4/30/21.
  */
+@RunWith(AndroidJUnit4::class)
 class EnterNameTest : TestBase() {
-    @Before
-    fun navigateToTypeText() {
-        // From Main navigate to type text
-        Espresso.onView(ViewMatchers.withId(R.id.type_text_button)).perform(ViewActions.click())
-    }
 
     @Test
     fun testHintDisplayed() {
-        Espresso.onView(ViewMatchers.withId(R.id.name_edittext)).check(ViewAssertions.matches(ViewMatchers.withHint(R.string.enter_name)))
+        // From Main navigate to type text
+        LandingPage.tapTypeTextScreen()
+
+        // Verify placeholder text is displayed
+        TypeText.verifyHintIsDisplayed
     }
 
     @Test
     fun testErrorMessageDisplayed() {
+        // From Main navigate to type text
+        LandingPage.tapTypeTextScreen()
+
         // Making sure the error message is not displayed by default
-        Espresso.onView(ViewMatchers.withId(R.id.error_text)).check(ViewAssertions.matches(CoreMatchers.not(ViewMatchers.isDisplayed())))
+        TypeText.verifyErrorMessageIsNotDisplayed
 
         // Click on "Next" button
-        Espresso.onView(ViewMatchers.withId(R.id.next_button)).perform(ViewActions.click())
+        TypeText.clickNextButton()
 
         // Now check the error message is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.error_text)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        TypeText.verifyErrorMessageIsDisplayed
     }
 
     @Test
     fun testGreetingMessageWithNameDisplayed() {
-        Espresso.onView(ViewMatchers.withId(R.id.name_edittext)).perform(ViewActions.typeText(USER_NAME))
-        Espresso.onView(ViewMatchers.withId(R.id.next_button)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.greeting_message)).check(ViewAssertions.matches(ViewMatchers.withText(GREETING_MESSAGE)))
-    }
+        // From Main navigate to type text
+        LandingPage.tapTypeTextScreen()
 
-    companion object {
-        const val USER_NAME = "John"
-        const val GREETING_MESSAGE = "Hello " + USER_NAME + "!"
+        // Enter name in text edit field
+        TypeText.typeInEnterNameTextEdit()
+
+        // Click on "Next" button
+        TypeText.clickNextButton()
+
+        // Check the greeting message matches what's expected
+        TypeText.verifyGreetingMessageMatches
     }
 }
