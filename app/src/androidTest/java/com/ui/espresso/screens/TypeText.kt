@@ -13,11 +13,11 @@ import org.hamcrest.CoreMatchers.not
 object TypeText {
 
     // region | Constants --------------------------------------------------------------------------
-    private const val NAME_EDITTEXT: Int = R.id.name_edittext
-    private const val ENTER_NAME: Int = R.string.enter_name
-    private const val ERROR_TEXT: Int = R.id.error_text
-    private const val NEXT_BUTTON: Int = R.id.next_button
-    private const val GREETING_MESSAGE: Int = R.id.greeting_message
+    private const val NAME_EDITTEXT = R.id.name_edittext
+    private const val ENTER_NAME = R.string.enter_name
+    private const val ERROR_TEXT = R.id.error_text
+    private const val NEXT_BUTTON = R.id.next_button
+    private const val GREETING_MESSAGE = R.id.greeting_message
 
     // endregion
 

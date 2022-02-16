@@ -16,7 +16,7 @@ class EnterNameTest : TestBase() {
     @Test
     fun testHintDisplayed() {
         // From Main navigate to type text
-        LandingPage.getTypeTextScreen()
+        LandingPage.tapTypeTextScreen()
 
         // Verify placeholder text is displayed
         TypeText.verifyHintIsDisplayed
@@ -25,7 +25,7 @@ class EnterNameTest : TestBase() {
     @Test
     fun testErrorMessageDisplayed() {
         // From Main navigate to type text
-        LandingPage.getTypeTextScreen()
+        LandingPage.tapTypeTextScreen()
 
         // Making sure the error message is not displayed by default
         TypeText.verifyErrorMessageIsNotDisplayed
@@ -40,7 +40,7 @@ class EnterNameTest : TestBase() {
     @Test
     fun testGreetingMessageWithNameDisplayed() {
         // From Main navigate to type text
-        LandingPage.getTypeTextScreen()
+        LandingPage.tapTypeTextScreen()
 
         // Enter name in text edit field
         TypeText.typeInEnterNameTextEdit()

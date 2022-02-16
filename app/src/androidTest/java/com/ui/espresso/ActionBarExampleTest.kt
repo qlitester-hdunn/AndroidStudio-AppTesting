@@ -19,7 +19,7 @@ class ActionBarExampleTest : TestBase() {
         Timber.d("Tapping on the action settings button displays settings")
 
         // From LandingPage navigate to ActionBar
-        LandingPage.getActionBarScreen()
+        LandingPage.tapActionBarScreen()
 
         // Find the settings button in the action bar and click on it
         ActionBar.tapOnActionBarSettingsButton()
@@ -33,7 +33,7 @@ class ActionBarExampleTest : TestBase() {
         Timber.d("Tapping on the about button in action bar options menu displays about")
 
         // From LandingPage navigate to ActionBar
-        LandingPage.getActionBarScreen()
+        LandingPage.tapActionBarScreen()
 
         // Open the action bar overflow or options menu (depending if the device has or not a hardware menu button.)
         ActionBar.tapOnActionsMenuButton()
@@ -50,7 +50,7 @@ class ActionBarExampleTest : TestBase() {
         Timber.d("Tapping on the toggle action mode buttons displays ActionMode1")
 
         // From LandingPage navigate to ActionBar
-        LandingPage.getActionBarScreen()
+        LandingPage.tapActionBarScreen()
 
         // Show the contextual ActionBar
         ActionBar.tapOnToggleActionModeButton()
