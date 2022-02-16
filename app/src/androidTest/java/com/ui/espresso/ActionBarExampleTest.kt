@@ -1,58 +1,64 @@
 package com.ui.espresso
 
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.ui.espresso.bases.TestBase
+import com.ui.espresso.screens.ActionBar
+import com.ui.espresso.screens.LandingPage
 import org.junit.Test
+import org.junit.runner.RunWith
+import timber.log.Timber
 
 /**
  * @author  HDunn, Modified on 4/30/21.
  */
+@RunWith(AndroidJUnit4::class)
 class ActionBarExampleTest : TestBase() {
+
     @Test
     fun testClickOnMenuItem() {
+        Timber.d("Tapping on the action settings button displays settings")
 
-        // From Main navigate to ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.action_bar_button)).perform(ViewActions.click())
+        // From LandingPage navigate to ActionBar
+        LandingPage.getActionBarScreen()
 
-        // Click on an item from ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.action_settings)).perform(ViewActions.click())
+        // Find the settings button in the action bar and click on it
+        ActionBar.tapOnActionBarSettingsButton()
 
         // Verify the correct item was clicked by checking the content of the status TextView
-        Espresso.onView(ViewMatchers.withId(R.id.status)).check(ViewAssertions.matches(ViewMatchers.withText("Settings")))
+        ActionBar.verifySettingsText
     }
 
     @Test
     fun testOverflowMenuOrOptionsMenu() {
+        Timber.d("Tapping on the about button in action bar options menu displays about")
 
-        // From Main navigate to ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.action_bar_button)).perform(ViewActions.click())
+        // From LandingPage navigate to ActionBar
+        LandingPage.getActionBarScreen()
 
         // Open the action bar overflow or options menu (depending if the device has or not a hardware menu button.)
-        Espresso.openActionBarOverflowOrOptionsMenu(ApplicationProvider.getApplicationContext())
+        ActionBar.tapOnActionsMenuButton()
 
         // Find the menu item with text "About" and click on it
-        Espresso.onView(ViewMatchers.withText("About")).perform(ViewActions.click())
+        ActionBar.tapOnMenuItemAbout()
 
         // Verify the correct item was clicked by checking the content of the status TextView
-        Espresso.onView(ViewMatchers.withId(R.id.status)).check(ViewAssertions.matches(ViewMatchers.withText("About")))
+        ActionBar.verifyAboutText
     }
 
     @Test
     fun testActionMode() {
-        // From Main navigate to ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.action_bar_button)).perform(ViewActions.click())
+        Timber.d("Tapping on the toggle action mode buttons displays ActionMode1")
+
+        // From LandingPage navigate to ActionBar
+        LandingPage.getActionBarScreen()
 
         // Show the contextual ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.toggle_action_mode)).perform(ViewActions.click())
+        ActionBar.tapOnToggleActionModeButton()
 
         // Click on a context item
-        Espresso.onView(ViewMatchers.withId(R.id.action_one)).perform(ViewActions.click())
+        ActionBar.tapOnActionModeOneItem()
 
         // Verify the correct item was clicked by checking the content of the status TextView
-        Espresso.onView(ViewMatchers.withId(R.id.status)).check(ViewAssertions.matches(ViewMatchers.withText("ActionMode1")))
+        ActionBar.verifyActionMode1Text
     }
 }
