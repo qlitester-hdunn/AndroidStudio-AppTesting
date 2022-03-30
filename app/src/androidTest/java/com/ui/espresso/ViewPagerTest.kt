@@ -6,7 +6,11 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import com.ui.espresso.bases.TestBase
+import com.ui.espresso.constants.Books
 import com.ui.espresso.matchers.CustomMatchers
+import com.ui.espresso.screens.BookDetailScreen
+import com.ui.espresso.screens.MainScreen
+import com.ui.espresso.screens.ViewPagerScreen
 import org.hamcrest.CoreMatchers
 import org.junit.Before
 import org.junit.Test
@@ -18,16 +22,16 @@ class ViewPagerTest : TestBase() {
     @Before
     fun navigateToViewpager() {
         // From Main navigate to viewpager
-        Espresso.onView(ViewMatchers.withId(R.id.viewpager_button)).perform(ViewActions.click())
+        MainScreen.tapViewPagerButton()
     }
 
     @Test
     fun testAllTabDisplayedOnSwipe() {
         // Locate the ViewPager and perform a swipe left action
-        Espresso.onView(ViewMatchers.withId(R.id.pager)).perform(ViewActions.swipeLeft())
+        ViewPagerScreen.swipePagerLeft()
 
         // Check the "ALL BOOKS" text is displayed
-        Espresso.onView(CoreMatchers.allOf(ViewMatchers.withId(R.id.header_text), ViewMatchers.isDisplayed())).check(ViewAssertions.matches(ViewMatchers.withText("ALL BOOKS")))
+        ViewPagerScreen.verifyAllBooksText
     }
 
     @Test
@@ -35,26 +39,21 @@ class ViewPagerTest : TestBase() {
         // Fails with AmbiguousViewMatcherException as same ListView is used in both pages of ViewPager.
         // onData(allOf(withBookTitle(BOOK_TITLE), withBookAuthor(BOOK_AUTHOR))).perform(click());
 
+        ViewPagerScreen.book = Books.CLEANCODE
         // Forcing a fail if no click - now at ALL BOOKS
-        Espresso.onView(ViewMatchers.withId(R.id.pager)).perform(ViewActions.swipeLeft())
+        ViewPagerScreen.swipePagerLeft()
 
         // Click on "New" now ListView is displayed
-        Espresso.onView(ViewMatchers.withText("New")).perform(ViewActions.click())
+        ViewPagerScreen.tapNewButton()
 
         // Refine query specifying an AdapterView that is currently visible (isDisplayed).
-        Espresso.onData(CoreMatchers.allOf(CustomMatchers.withBookTitle(BOOK_TITLE), CustomMatchers.withBookAuthor(BOOK_AUTHOR)))
-                .inAdapterView(CoreMatchers.allOf(ViewMatchers.isAssignableFrom(AdapterView::class.java), ViewMatchers.isDisplayed()))
-                .perform(ViewActions.click())
+        ViewPagerScreen.tapBook()
 
         // Check the correct book title is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.book_title)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_TITLE)))
+        BookDetailScreen.book = Books.CLEANCODE
+        BookDetailScreen.verifyBookTitle
 
         // Check the correct author is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.book_author)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_AUTHOR)))
-    }
-
-    companion object {
-        private const val BOOK_TITLE = "Clean Code"
-        private const val BOOK_AUTHOR = "Robert C. Martin"
+        BookDetailScreen.verifyBookAuthor
     }
 }

@@ -6,6 +6,8 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import com.ui.espresso.bases.TestBase
+import com.ui.espresso.screens.ActionBarScreen
+import com.ui.espresso.screens.MainScreen
 import org.junit.Test
 
 /**
@@ -16,43 +18,43 @@ class ActionBarExampleTest : TestBase() {
     fun testClickOnMenuItem() {
 
         // From Main navigate to ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.action_bar_button)).perform(ViewActions.click())
+        MainScreen.tapActionBarButton()
 
         // Click on an item from ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.action_settings)).perform(ViewActions.click())
+        ActionBarScreen.tapSettingsMenu()
 
         // Verify the correct item was clicked by checking the content of the status TextView
-        Espresso.onView(ViewMatchers.withId(R.id.status)).check(ViewAssertions.matches(ViewMatchers.withText("Settings")))
+        ActionBarScreen.verifySettingsText
     }
 
     @Test
     fun testOverflowMenuOrOptionsMenu() {
 
         // From Main navigate to ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.action_bar_button)).perform(ViewActions.click())
+        MainScreen.tapActionBarButton()
 
         // Open the action bar overflow or options menu (depending if the device has or not a hardware menu button.)
-        Espresso.openActionBarOverflowOrOptionsMenu(ApplicationProvider.getApplicationContext())
+        ActionBarScreen.openOverflowOrOptionsMenu()
 
         // Find the menu item with text "About" and click on it
-        Espresso.onView(ViewMatchers.withText("About")).perform(ViewActions.click())
+        ActionBarScreen.tapAboutOption()
 
         // Verify the correct item was clicked by checking the content of the status TextView
-        Espresso.onView(ViewMatchers.withId(R.id.status)).check(ViewAssertions.matches(ViewMatchers.withText("About")))
+        ActionBarScreen.verifyAboutText
     }
 
     @Test
     fun testActionMode() {
         // From Main navigate to ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.action_bar_button)).perform(ViewActions.click())
+        MainScreen.tapActionBarButton()
 
         // Show the contextual ActionBar
-        Espresso.onView(ViewMatchers.withId(R.id.toggle_action_mode)).perform(ViewActions.click())
+        ActionBarScreen.showContextualActionBar()
 
         // Click on a context item
-        Espresso.onView(ViewMatchers.withId(R.id.action_one)).perform(ViewActions.click())
+        ActionBarScreen.tapContextItem()
 
         // Verify the correct item was clicked by checking the content of the status TextView
-        Espresso.onView(ViewMatchers.withId(R.id.status)).check(ViewAssertions.matches(ViewMatchers.withText("ActionMode1")))
+        ActionBarScreen.verifyActionMode1
     }
 }

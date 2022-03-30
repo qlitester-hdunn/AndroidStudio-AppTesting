@@ -7,6 +7,10 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import com.ui.espresso.bases.TestBase
+import com.ui.espresso.constants.Books
+import com.ui.espresso.screens.BookDetailScreen
+import com.ui.espresso.screens.MainScreen
+import com.ui.espresso.screens.RecyclerViewScreen
 import org.junit.Before
 import org.junit.Test
 
@@ -17,27 +21,28 @@ class RecyclerViewTest : TestBase() {
     @Before
     fun navigateToRecyclerView() {
         // From Main navigate to recycler view
-        Espresso.onView(ViewMatchers.withId(R.id.recycler_view_button)).perform(ViewActions.click())
+        MainScreen.tapRecyclerViewButton()
     }
 
     @Test
     fun testClickAtPosition() {
+        RecyclerViewScreen.book = Books.CLEANCODE
         // Perform a click on first element in the RecyclerView
-        Espresso.onView(ViewMatchers.withId(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
-        Espresso.onView(ViewMatchers.withId(R.id.book_title)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_TITLE)))
-        Espresso.onView(ViewMatchers.withId(R.id.book_author)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_AUTHOR)))
+        RecyclerViewScreen.tapBookAtPosition()
+
+        BookDetailScreen.book = Books.CLEANCODE
+        BookDetailScreen.verifyBookTitle
+        BookDetailScreen.verifyBookAuthor
     }
 
     @Test
     fun testClickOnViewInRow() {
         // Perform click on an element with a specific text
-        Espresso.onView(ViewMatchers.withId(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>(
-                ViewMatchers.hasDescendant(ViewMatchers.withText(BOOK_TITLE)), ViewActions.click()))
-        Espresso.onView(ViewMatchers.withId(R.id.book_title)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_TITLE)))
-    }
+        RecyclerViewScreen.book = Books.CLEANCODE
+        RecyclerViewScreen.tapBookWithTitle()
 
-    companion object {
-        private const val BOOK_TITLE = "Clean Code"
-        private const val BOOK_AUTHOR = "Robert C. Martin"
+        BookDetailScreen.book = Books.CLEANCODE
+        BookDetailScreen.verifyBookTitle
+
     }
 }

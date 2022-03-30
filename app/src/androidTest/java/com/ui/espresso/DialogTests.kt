@@ -5,6 +5,9 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import com.ui.espresso.bases.TestBase
+import com.ui.espresso.screens.DialogPopUpScreen
+import com.ui.espresso.screens.DialogScreen
+import com.ui.espresso.screens.MainScreen
 import org.junit.Before
 import org.junit.Test
 
@@ -14,33 +17,34 @@ import org.junit.Test
 class DialogTests : TestBase() {
     @Before
     fun navigateToDialogs() {
-        // From Main navigate to date time pickers
-        Espresso.onView(ViewMatchers.withId(R.id.dialogs_button)).perform(ViewActions.click())
+        // From Main navigate to Dialog Activity
+        MainScreen.tapDialogButton()
     }
 
     @Test
     fun testCheckDialogDisplayed() {
         // Click on the button that shows the dialog
-        Espresso.onView(ViewMatchers.withId(R.id.confirm_dialog_button)).perform(ViewActions.click())
+        DialogScreen.tapShowDialogButton()
 
         // Check the dialog title text is displayed
-        Espresso.onView(ViewMatchers.withText(R.string.dialog_title)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        DialogPopUpScreen.verifyTitleDisplayed
     }
 
     @Test
     fun testClickOkButton() {
-        Espresso.onView(ViewMatchers.withId(R.id.confirm_dialog_button)).perform(ViewActions.click())
+        DialogScreen.tapShowDialogButton()
 
         // android.R.id.button1 = positive button
-        Espresso.onView(ViewMatchers.withId(android.R.id.button1)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.status_text)).check(ViewAssertions.matches(ViewMatchers.withText(R.string.ok)))
+        DialogPopUpScreen.tapOkButton()
+        DialogScreen.verifyOkText
     }
 
+    @Test
     fun testClickCancelButton() {
-        Espresso.onView(ViewMatchers.withId(R.id.confirm_dialog_button)).perform(ViewActions.click())
+        DialogScreen.tapShowDialogButton()
 
         // android.R.id.button2 = negative button
-        Espresso.onView(ViewMatchers.withId(android.R.id.button2)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.status_text)).check(ViewAssertions.matches(ViewMatchers.withText(R.string.cancel)))
+        DialogPopUpScreen.tapCancelButton()
+        DialogScreen.verifyCancelText
     }
 }
