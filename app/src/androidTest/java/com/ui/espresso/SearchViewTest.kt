@@ -8,6 +8,8 @@ import androidx.test.espresso.matcher.RootMatchers
 import androidx.test.espresso.matcher.ViewMatchers
 import com.ui.espresso.bases.TestBase
 import com.ui.espresso.matchers.CustomMatchers
+import com.ui.espresso.screens.MainScreen
+import com.ui.espresso.screens.SearchViewScreen
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Matchers
 import org.junit.Before
@@ -18,100 +20,79 @@ import org.junit.Test
  */
 class SearchViewTest : TestBase() {
 
-    companion object {
-        const val HELSINKI = "Helsinki"
-    }
-
     @Before
     fun navigateToSearchView() {
         // From Main navigate to search view
-        Espresso.onView(ViewMatchers.withId(R.id.search_view_button)).perform(ViewActions.click())
+        MainScreen.tapSearchViewButton()
     }
 
     @Test
     fun testItemNotFound() {
         // Click on the search icon
-        Espresso.onView(ViewMatchers.withId(R.id.action_search)).perform(ViewActions.click())
+        SearchViewScreen.tapSearchButton()
 
         // Type the text in the search field and submit the query
-        Espresso.onView(ViewMatchers.isAssignableFrom(EditText::class.java))
-                .perform(ViewActions.typeText(
-                        "No such item"),
-                        ViewActions.pressImeActionButton())
+        SearchViewScreen.searchInvalidSearch()
 
         // Check the empty view is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.empty_view))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        SearchViewScreen.verifyEmptyViewDisplayed
     }
 
     @Test
     fun testItemFound() {
-        Espresso.onView(ViewMatchers.withId(R.id.action_search)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.isAssignableFrom(EditText::class.java))
-                .perform(ViewActions.typeText(HELSINKI), ViewActions.pressImeActionButton())
+
+        SearchViewScreen.tapSearchButton()
+
+        SearchViewScreen.searchValidSearch()
 
         // Check empty view is not displayed
-        Espresso.onView(ViewMatchers.withId(R.id.empty_view))
-                .check(ViewAssertions.matches(Matchers.not(ViewMatchers.isDisplayed())))
+        SearchViewScreen.verifyEmptyViewNotDisplayed
 
         // Check the item we are looking for is in the search result list.
-        Espresso.onData(Matchers.allOf(CoreMatchers.`is`(Matchers.instanceOf(
-                String::class.java)),
-                CustomMatchers.withItemContent(HELSINKI)))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        SearchViewScreen.verifySearchItemDisplayed
     }
 
     @Test
     fun testSearchSuggestionDisplayed() {
-        Espresso.onView(ViewMatchers.withId(R.id.action_search)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.isAssignableFrom(EditText::class.java))
-                .perform(ViewActions.typeText(HELSINKI), ViewActions.pressImeActionButton())
+        SearchViewScreen.tapSearchButton()
+
+        SearchViewScreen.searchValidSearch()
 
         // Go back to previous screen
         Espresso.pressBack()
 
         // Clear the text in search field
-        Espresso.onView(ViewMatchers.isAssignableFrom(EditText::class.java))
-                .perform(ViewActions.clearText())
+        SearchViewScreen.clearSearchBar()
 
         // Enter the first letter of the previously searched word
-        Espresso.onView(ViewMatchers.isAssignableFrom(EditText::class.java))
-                .perform(ViewActions.typeText("He"))
+        SearchViewScreen.enterPartialSearch()
 
         // Check the search suggestions appear
-        Espresso.onView(ViewMatchers.withText(HELSINKI))
-                .inRoot(RootMatchers.withDecorView(Matchers.not(Matchers.`is`(activity!!.window.decorView))))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        SearchViewScreen.activity = activity
+        SearchViewScreen.verifySearchSuggestionDisplayed
     }
 
     @Test
     fun testClickOnSearchSuggestion() {
 
-        Espresso.onView(ViewMatchers.withId(R.id.action_search)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.isAssignableFrom(EditText::class.java))
-                .perform(ViewActions.typeText(HELSINKI), ViewActions.pressImeActionButton())
+        SearchViewScreen.tapSearchButton()
+        SearchViewScreen.searchValidSearch()
 
         // Go back to previous screen
         Espresso.pressBack()
 
         // Clear the text in search field
-        Espresso.onView(ViewMatchers.isAssignableFrom(EditText::class.java))
-                .perform(ViewActions.clearText())
+        SearchViewScreen.clearSearchBar()
 
         // Enter the first letter of the previously searched word
-        Espresso.onView(ViewMatchers.isAssignableFrom(EditText::class.java))
-                .perform(ViewActions.typeText("He"))
+        SearchViewScreen.enterPartialSearch()
 
 
         // Click on the "Java" item from the suggestions list
-        Espresso.onView(ViewMatchers.withText(HELSINKI))
-                .inRoot(RootMatchers.withDecorView(Matchers.not(Matchers.`is`(activity!!.window.decorView))))
-                .perform(ViewActions.click())
+        SearchViewScreen.activity = activity
+        SearchViewScreen.tapSearchSuggestion()
 
         // Check the item appears in search results list.
-        Espresso.onData(Matchers.allOf(CoreMatchers.`is`(Matchers.instanceOf(
-                String::class.java)),
-                CustomMatchers.withItemContent(HELSINKI)))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        SearchViewScreen.verifySearchItemDisplayed
     }
 }

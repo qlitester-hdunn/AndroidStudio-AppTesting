@@ -5,7 +5,9 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import com.ui.espresso.bases.TestBase
-import org.hamcrest.CoreMatchers
+import com.ui.espresso.screens.MainScreen
+import com.ui.espresso.screens.TypeTextDisplayScreen
+import com.ui.espresso.screens.TypeTextScreen
 import org.junit.Before
 import org.junit.Test
 
@@ -16,35 +18,31 @@ class EnterNameTest : TestBase() {
     @Before
     fun navigateToTypeText() {
         // From Main navigate to type text
-        Espresso.onView(ViewMatchers.withId(R.id.type_text_button)).perform(ViewActions.click())
+        MainScreen.tapTypeTextButton()
     }
 
     @Test
     fun testHintDisplayed() {
-        Espresso.onView(ViewMatchers.withId(R.id.name_edittext)).check(ViewAssertions.matches(ViewMatchers.withHint(R.string.enter_name)))
+        TypeTextScreen.verifyHintDisplayed
     }
 
     @Test
     fun testErrorMessageDisplayed() {
         // Making sure the error message is not displayed by default
-        Espresso.onView(ViewMatchers.withId(R.id.error_text)).check(ViewAssertions.matches(CoreMatchers.not(ViewMatchers.isDisplayed())))
+        TypeTextScreen.verifyErrorTextNotDisplayed
 
         // Click on "Next" button
-        Espresso.onView(ViewMatchers.withId(R.id.next_button)).perform(ViewActions.click())
+        TypeTextScreen.tapNextButton()
 
         // Now check the error message is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.error_text)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        TypeTextScreen.verifyErrorTextDisplayed
     }
 
     @Test
     fun testGreetingMessageWithNameDisplayed() {
-        Espresso.onView(ViewMatchers.withId(R.id.name_edittext)).perform(ViewActions.typeText(USER_NAME))
-        Espresso.onView(ViewMatchers.withId(R.id.next_button)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.greeting_message)).check(ViewAssertions.matches(ViewMatchers.withText(GREETING_MESSAGE)))
+        TypeTextScreen.insertUserName()
+        TypeTextScreen.tapNextButton()
+        TypeTextDisplayScreen.verifyGreetingText
     }
 
-    companion object {
-        const val USER_NAME = "John"
-        const val GREETING_MESSAGE = "Hello " + USER_NAME + "!"
-    }
 }

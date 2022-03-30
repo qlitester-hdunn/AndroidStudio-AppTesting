@@ -1,12 +1,8 @@
 package com.ui.espresso
 
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.ViewMatchers
 import com.ui.espresso.bases.CustomListActivityBase
-import com.ui.espresso.matchers.CustomMatchers
-import org.hamcrest.CoreMatchers
+import com.ui.espresso.constants.Books
+import com.ui.espresso.screens.CustomListScreen
 import org.junit.Test
 
 /**
@@ -15,38 +11,37 @@ import org.junit.Test
 class CustomListTest : CustomListActivityBase() {
     @Test
     fun testOpenBookById() {
+        CustomListScreen.book = Books.JAVACONCURENCY
 
         // Click on the Book with ID 5
-        Espresso.onData(CustomMatchers.withBookId(5)).perform(ViewActions.click())
+        CustomListScreen.tapBook(5)
 
         // Check the correct book title is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.book_title)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_TITLE)))
+        CustomListScreen.verifyBookTitle
 
         // Check the correct author is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.book_author)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_AUTHOR)))
+        CustomListScreen.verifyBookAuthor
     }
 
     @Test
     fun testOpenBookByTitleAndAuthor() {
+        CustomListScreen.book = Books.JAVACONCURENCY
         // Match a book with a specific title and author name
-        Espresso.onData(CoreMatchers.allOf(CustomMatchers.withBookTitle(BOOK_TITLE), CustomMatchers.withBookAuthor(BOOK_AUTHOR))).perform(ViewActions.click())
-
+        CustomListScreen.tapBookWithTitleAndAuthor()
         // Check the correct book title is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.book_title)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_TITLE)))
+        CustomListScreen.verifyBookTitle
 
         // Check the correct author is displayed
-        Espresso.onView(ViewMatchers.withId(R.id.book_author)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_AUTHOR)))
+        CustomListScreen.verifyBookAuthor
     }
 
     @Test
     fun testClickOnBookByPosition() {
-        Espresso.onData(CoreMatchers.anything()).atPosition(5).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.book_title)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_TITLE)))
-        Espresso.onView(ViewMatchers.withId(R.id.book_author)).check(ViewAssertions.matches(ViewMatchers.withText(BOOK_AUTHOR)))
+        CustomListScreen.book = Books.JAVACONCURENCY
+
+        CustomListScreen.tapBookPosition(5)
+        CustomListScreen.verifyBookTitle
+        CustomListScreen.verifyBookAuthor
     }
 
-    companion object {
-        private const val BOOK_TITLE = "Java Concurrency in Practice"
-        private const val BOOK_AUTHOR = "Brian Goetz"
-    }
 }

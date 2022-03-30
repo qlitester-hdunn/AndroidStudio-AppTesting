@@ -7,7 +7,12 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.PickerActions
 import androidx.test.espresso.matcher.ViewMatchers
+import com.mifmif.common.regex.Main
 import com.ui.espresso.bases.TestBase
+import com.ui.espresso.screens.DatePickerScreen
+import com.ui.espresso.screens.DateTimePickerScreen
+import com.ui.espresso.screens.MainScreen
+import com.ui.espresso.screens.TimePickerScreen
 import org.hamcrest.Matchers
 import org.junit.Test
 
@@ -22,11 +27,15 @@ class DateTimePickerTest : TestBase() {
         val day = 15
 
         // From Main navigate to date time pickers
-        Espresso.onView(ViewMatchers.withId(R.id.pickers_button)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.date_picker_button)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withClassName(Matchers.equalTo(DatePicker::class.java.name))).perform(PickerActions.setDate(year, month + 1, day))
-        Espresso.onView(ViewMatchers.withId(android.R.id.button1)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.status)).check(ViewAssertions.matches(ViewMatchers.withText("$year/$month/$day")))
+        MainScreen.tapDateTimePickersButton()
+        DateTimePickerScreen.tapDatePickerButton()
+
+        // Select Year, Month, and Day
+        DatePickerScreen.selectYearMonthDay(year, month, day)
+        DatePickerScreen.tapOkButton()
+
+        //Verify that the date is shown
+        DateTimePickerScreen.verifyDate(year, month, day)
     }
 
     @Test
@@ -35,10 +44,14 @@ class DateTimePickerTest : TestBase() {
         val minutes = 59
 
         // From Main navigate to date time pickers
-        Espresso.onView(ViewMatchers.withId(R.id.pickers_button)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.time_picker_button)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withClassName(Matchers.equalTo(TimePicker::class.java.name))).perform(PickerActions.setTime(hour, minutes))
-        Espresso.onView(ViewMatchers.withId(android.R.id.button1)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.status)).check(ViewAssertions.matches(ViewMatchers.withText("$hour:$minutes")))
+        MainScreen.tapDateTimePickersButton()
+        DateTimePickerScreen.tapTimePickerButton()
+
+        // Select Hour and Minute
+        TimePickerScreen.selectHourandMinute(hour,minutes)
+        TimePickerScreen.tapOkButton()
+
+        // Verify that the time is shown
+        DateTimePickerScreen.verifyTime(hour, minutes)
     }
 }
